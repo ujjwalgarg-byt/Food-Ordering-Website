@@ -1,0 +1,19 @@
+{
+  "name": "food-ordering-website",
+  "version": "1.0.0",
+  "description": "This is my first app ",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/ujjwalgarg-byt/Food-Ordering-Website.git)"
+  },
+  "keywords": [],
+  "author": "Ujjwal Garg",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.14.4"
+  }
+}
