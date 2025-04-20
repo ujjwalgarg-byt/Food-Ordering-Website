@@ -49,3 +49,28 @@
     
     cursor: pointer;
 }
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.shimmer-card{
+    margin:5px;
+    background-color: #f0f0f0;
+    width: 200px;
+    height: 350px;
+}
+.login{
+    margin: 10px;
+    padding:10px;
+    cursor: pointer;
+}
+.filter{
+    display: flex;
+
+}
+.search{
+    margin: 10px;
+    
+}
