@@ -1,8 +1,11 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
-
 import ShimmerUi from "./ShimmerUi";
 import { Link } from "react-router-dom";
+import { RESTAURANT_API } from "../utils/constants";
+import useCheckStatus from "../utils/useCheckStatus";
+
+
 const Body=()=>{
 
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -20,9 +23,7 @@ const Body=()=>{
   },[]);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.9680035&lng=77.55520659999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(RESTAURANT_API);
     const json = await data.json();
     console.log(json);
     // setListOfRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
@@ -30,6 +31,18 @@ const Body=()=>{
     setListOfRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
+
+  const onlineStatus = useCheckStatus();
+  if(onlineStatus=== false) {
+    // if the online status is false then we will show the below message
+    return (
+      <div>
+        <h1>Looks like you are offline, please check your internet connection</h1>
+        
+      </div>
+    )
+  }
+
   if(listOfRestaurant.length === 0) {
     return <ShimmerUi/>;
   }
@@ -76,8 +89,8 @@ const Body=()=>{
         <div className="restro-container">
           {/* <RestaurantCard resData = {resList[0]}/> */}
           {filteredRestaurant.map((restaurant)=>(
-            <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}><RestaurantCard resData={restaurant}/></Link>
-            ))}
+            <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id} style={{ textDecoration: 'none', color:"black" }}><RestaurantCard resData={restaurant}/></Link>
+          ))}
           
         </div>
       </div>
