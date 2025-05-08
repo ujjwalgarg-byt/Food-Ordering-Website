@@ -49,18 +49,18 @@ const Body=()=>{
   // if we do not have any data then we will show the shimmer ui
 
     return(
-      <div className="body">
-        <div className="filter">
-        <div className="search">
+      <div className="body bg-[#F4FFC3]">
+        <div className="filter flex">
+        <div className=" search m-4 p-4 ">
           <input
            type="text"
-           className="search-box"
+           className="border border-solid border-black rounded-md bg-white"
            value={searchText}
            onChange={(e)=>{
             setSearchText(e.target.value);
 
            }} />
-          <button className="search-btn"
+          <button className="search-btn bg-amber-100 px-3 py-0.5 m-3 rounded-lg border border-solid border-black cursor-pointer"
            onClick={()=>{
             console.log(searchText);
             const filteredRestaurant = listOfRestaurant.filter((res) =>
@@ -73,20 +73,24 @@ const Body=()=>{
            Search
           </button>
         </div>
+        <div className=" top-restro m-4 p-4 flex items-center">
         <button
-        className="filter-btn"
-        onClick={() => {
+         className="m-2.5 bg-amber-100 px-3 py-0.5 rounded-lg border border-solid border-black cursor-pointer" 
+          onClick={() => {
           const filteredList = listOfRestaurant.filter(
             (res) => res.info.avgRating > 4.5
           );
           setListOfRestaurant(filteredList);
-        }}
-      >
+          }}
+        >
         Top Rated Restaurants
-      </button>
+        </button>
 
         </div>
-        <div className="restro-container">
+        
+
+        </div>
+        <div className="restro-container flex flex-wrap justify-center"> 
           {/* <RestaurantCard resData = {resList[0]}/> */}
           {filteredRestaurant.map((restaurant)=>(
             <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id} style={{ textDecoration: 'none', color:"black" }}><RestaurantCard resData={restaurant}/></Link>
