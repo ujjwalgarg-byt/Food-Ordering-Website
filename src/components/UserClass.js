@@ -19,9 +19,9 @@ class UserClass extends React.Component {
   render() {
     
     return (
-      <div className='user-list'>
+      <div className='user-list flex flex-wrap justify-center m-2.5'>
         {this.state.userInfo.map(user => (
-          <div className='user-card' key={user.id}>
+          <div className='user-card p-2.5 m-2.5 border-1 border-solid border-black bg-[#FFF2D7] w-[200px] break-words rounded-md' key={user.id}>
             <h1>Name: {user.name}</h1>
             <h3>Location: {user.address.city}</h3>
             <h4>Email: {user.email}</h4>
