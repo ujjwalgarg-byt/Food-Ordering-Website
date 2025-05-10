@@ -7,7 +7,7 @@ import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import Menu from "./components/Menu";
-
+import FoodCartPage from "./components/FoodCartPage";
     
 const AppLayout =() =>{
   return(
@@ -40,6 +40,11 @@ const appRouter=createBrowserRouter([
       {
         path:"/restaurants/:resId",
         element:<Menu/>,
+    
+      },
+      {
+        path:"/cart",
+        element:<FoodCartPage/>,
     
       },
     ],
