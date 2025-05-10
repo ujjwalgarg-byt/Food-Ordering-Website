@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard,{CardWithOneBenifits} from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerUi from "./ShimmerUi";
 import { Link } from "react-router-dom";
@@ -16,6 +16,7 @@ const Body=()=>{
   // const setListOfRestaurant = arr[1];
 
   const [searchText, setSearchText] = useState("");
+  const CardWithBenifits = CardWithOneBenifits(RestaurantCard);
 
   useEffect(()=>{
     fetchData();
@@ -78,9 +79,9 @@ const Body=()=>{
          className="m-2.5 bg-amber-100 px-3 py-0.5 rounded-lg border border-solid border-black cursor-pointer" 
           onClick={() => {
           const filteredList = listOfRestaurant.filter(
-            (res) => res.info.avgRating > 4.5
+            (res) => res.info.avgRating > 4.3
           );
-          setListOfRestaurant(filteredList);
+          setFilteredRestaurant(filteredList);
           }}
         >
         Top Rated Restaurants
@@ -90,10 +91,17 @@ const Body=()=>{
         
 
         </div>
-        <div className="restro-container flex flex-wrap justify-center"> 
+        <div className="restro-container flex flex-wrap justify-center "> 
           {/* <RestaurantCard resData = {resList[0]}/> */}
           {filteredRestaurant.map((restaurant)=>(
-            <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id} style={{ textDecoration: 'none', color:"black" }}><RestaurantCard resData={restaurant}/></Link>
+            <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id} style={{ textDecoration: 'none', color:"black" }}>
+              {
+                restaurant?.info?.veg ?
+                              <CardWithBenifits key ={restaurant?.info?.id} resData = {restaurant} /> :
+                              <RestaurantCard key ={restaurant?.info?.id} resData = {restaurant} />
+                            
+              }
+            </Link>
           ))}
           
         </div>
