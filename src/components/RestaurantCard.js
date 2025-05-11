@@ -29,7 +29,7 @@ const RestaurantCard=(props)=>{
       </div>
     )
   }
-export const CardWithOneBenifits = (Card) => {
+export const CardWithOneBenifits = (RestaurantCard) => {
     return (props) =>{
         return(
             <div className="relative">
