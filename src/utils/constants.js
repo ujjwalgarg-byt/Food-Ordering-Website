@@ -6,21 +6,3 @@ export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_M
 
 export const RESTAURANT_API = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=29.8542626&lng=77.8880002&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
-export const cartItems = [
-    {
-      id: 1,
-      name: 'Margherita Pizza',
-      description: 'Classic cheese & tomato pizza',
-      price: 79,
-      quantity: 1,
-      
-    },
-    {
-      id: 2,
-      name: 'Burger',
-      description: 'Fresh cheese burger',
-      price: 150,
-      quantity: 2,
-      
-    },
-  ];
