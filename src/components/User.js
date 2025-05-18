@@ -1,17 +1,16 @@
-import {useState} from 'react';
-const User=({name})=>{
-    const [count,setCount] = useState(0);
+
+const User=()=>{   
     return (
-        <div className="user-card">
-            <h1>count:{count}</h1>
-            <button onClick={()=>{
-                setCount(count + 1);
-                }}>
-                   Count Increase
-                </button>
-            <h1>Name: {name}</h1>
-            <h2>Location: Saharanpur</h2>
-            <h3>Contact: ujjwal@gamil.com</h3>
+        <div className="user-card flex justify-center h-[87vh] items-center bg-amber-500">
+            <div className="w-3/12 h-120 rounded-lg shadow-2xl bg-amber-300  flex items-center">
+                <label className="m-5">User Name : </label>
+                <input className=" m-2 border border-black bg-amber-100"/>
+                
+                 <button className="p-2 m-2">
+                    Enter
+                 </button>
+               
+            </div>
         </div>
     )
 }
