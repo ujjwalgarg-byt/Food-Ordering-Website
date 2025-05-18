@@ -1,5 +1,4 @@
-import { json } from "react-router-dom";
-import User from "./User";
+
 import UserClass from "./UserClass";
 const AboutUs = () => {
     return (
