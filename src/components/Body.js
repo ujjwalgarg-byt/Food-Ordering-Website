@@ -1,10 +1,11 @@
 import RestaurantCard,{CardWithOneBenifits} from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import ShimmerUi from "./ShimmerUi";
 import { Link } from "react-router-dom";
 import { RESTAURANT_API } from "../utils/constants";
 import useCheckStatus from "../utils/useCheckStatus";
-
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const Body=()=>{
 
@@ -17,6 +18,7 @@ const Body=()=>{
 
   const [searchText, setSearchText] = useState("");
   const CardWithBenifits = CardWithOneBenifits(RestaurantCard);
+  const {loggedInUser,setUserName} = useContext(UserContext); 
 
   useEffect(()=>{
     fetchData();
@@ -88,9 +90,20 @@ const Body=()=>{
         </button>
 
         </div>
+          <div className=" top-restro m-4 p-4 flex items-center">
+            <label className="font-bold">UserName : </label>
+             <input 
+                    className="border border-black m-2 p-0.5 rounded-lg text-center bg-white"
+                    type="text"
+                    value={loggedInUser}
+                    onChange={(e) => {
+                      setUserName(e.target.value);
+                    }}
+             />
+          </div>
+        </div>
         
 
-        </div>
         <div className="restro-container flex flex-wrap justify-center "> 
           {/* <RestaurantCard resData = {resList[0]}/> */}
           {filteredRestaurant.map((restaurant)=>(

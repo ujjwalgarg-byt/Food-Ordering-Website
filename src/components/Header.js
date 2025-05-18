@@ -1,10 +1,20 @@
 import { LOGO_URL } from "../utils/constants";
-import {  useState } from "react";
+import {  useState,useContext } from "react";
 import { Link } from "react-router-dom";
 import useCheckStatus from "../utils/useCheckStatus";
+import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+
 const Header=()=>{
+  
   const [btnName,setBtnName]=useState("LogIn");
   const onlineStatus = useCheckStatus();
+  const {loggedInUser} = useContext(UserContext);
+  //subscribing to the store using selector
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log('cartItems:', cartItems);
+  
+
     return (
      <div className="flex justify-between border-1 border-black bg-[#FFFA8D]  p-2 shadow-lg">
       <div className="logo-container">
@@ -17,7 +27,7 @@ const Header=()=>{
           
           <li className="p-2.5 m-2.5 font-semibold"><Link to="/about" >About Us <i className="fas fa-users"></i></Link></li>
           <li className="p-2.5 m-2.5 font-semibold"><Link to="/contact" >Contact Us <i className="fas fa-envelope"></i></Link></li>
-          <li className="p-2.5 m-2.5 font-semibold"><Link to="/cart">Cart <i className="fa-solid fa-cart-shopping"></i></Link></li>
+          <li className="p-2.5 m-2.5 font-semibold"><Link to="/cart">Cart({cartItems.length}) <i className="fa-solid fa-cart-shopping"></i></Link></li>
           <button className="login bg-[#F6EFBD] p-2.5 m-2.5 rounded-lg border border-solid border-black cursor-pointer"  
             onClick={()=>{
             btnName==="LogIn"
@@ -29,6 +39,9 @@ const Header=()=>{
             {btnName}
 
           </button>
+          {btnName==="LogOut" && (
+            <li className="p-2.5 m-2.5 font-bold">{loggedInUser}</li>
+          )}
           
         </ul>
       </div>
