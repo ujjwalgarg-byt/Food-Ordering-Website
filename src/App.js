@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,14 +7,32 @@ import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import Menu from "./components/Menu";
+import UserContext from "./utils/UserContext";
+import { useState} from "react";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 import FoodCartPage from "./components/FoodCartPage";
+
     
 const AppLayout =() =>{
+  const [userName,setUserName]=useState();
+  useEffect(()=>{
+    const data={
+      name:" ",
+    }
+    setUserName(data.name);
+  },[]);
+
   return(
-    <div className="app">
-      <Header/>
-      <Outlet/>
-    </div>
+    <Provider store={appStore}>
+     <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
+       <div className="app">
+        <Header/>
+        <Outlet/>
+       </div>
+    
+     </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -45,8 +63,8 @@ const appRouter=createBrowserRouter([
       {
         path:"/cart",
         element:<FoodCartPage/>,
-    
       },
+      
     ],
 
     errorElement:<Error/>,
