@@ -1,56 +1,49 @@
-import { cartItems } from '../utils/constants';
+
+import { useSelector } from "react-redux";
+
+import { useDispatch } from "react-redux";
+import { clearCart } from "../utils/cartSlice";
+
 const FoodCartPage = () => {
     
-  const subtotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  
+  const cartItems = useSelector((store) => store.cart.items);
+  const dispatch = useDispatch();
+
+  const handleCrearCart = () => {
+    dispatch(clearCart());
+  }
   
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">My Food Cart</h1>
+   <div className="text-center p-4 m-4">
+      <h1 className="text-3xl font-bold ">My Food Cart</h1>
+      <button
+        className="bg-amber-500 text-white font-bold p-2 m-4 rounded-lg shadow-lg"
+        onClick={handleCrearCart}
+      >
+        ClearCart
+      </button>
+      {cartItems.length===0 && <h1 className="font-bold text-2xl">Your cart is empty.Please add item to the cart 😊</h1>}
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  
+      <div className="w-6/12 m-auto">
         {/* Food Items */}
-        <div className="lg:col-span-2 space-y-4">
+        <div className=" text-left m-5">
           {cartItems.map((item) => (
             <div
-              key={item.id}
-              className="flex items-start justify-between p-4 border rounded-lg shadow-sm bg-white"
+              key={item.card?.info.id}
+              className=" p-4 m-5 border rounded-lg bg-amber-200 shadow-lg shadow-amber-100"
             >
-              <div className="flex space-x-4">
-                <div>
-                  <h2 className="text-lg font-semibold">{item.name}</h2>
-                  <p className="text-gray-500 text-sm">{item.description}</p>
-                  <p className="text-gray-800 font-medium mt-1">{item.price}</p>
-                </div>
+              <div>
+                  <h2 className="text-lg font-semibold">{item.card?.info.name}</h2>
+                  <p className="text-gray-500 text-sm">{item.card?.info.description}s</p>
+                  <p className="text-gray-800 font-medium mt-1">₹{item.card?.info.price/100 || item.card?.info.defaultPrice/100}</p>
               </div>
-              <div className="flex items-center space-x-2">
-                <button className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300" >-</button>
-                <span>{item.quantity}</span>
-                <button className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300">+</button>
-              </div>
+              
             </div>
           ))}
         </div>
-
-        {/* Order Summary */}
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md h-fit">
-          <h2 className="text-xl font-bold mb-4">Order Summary</h2>
-          <div className="space-y-2 mb-4">
-            {cartItems.map((item) => (
-              <div key={item.id} className="flex justify-between text-sm">
-                <span>{item.name} × {item.quantity}</span>
-                <span>{(item.price * item.quantity)}</span>
-              </div>
-            ))}
-          </div>
-          <hr className="my-4" />
-          <div className="flex justify-between font-semibold text-lg mb-4">
-            <span>Total</span>
-            <span>{subtotal}</span>
-          </div>
-          <button className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">
-            Checkout Now
-          </button>
-        </div>
+      
       </div>
     </div>
   );
