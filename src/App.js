@@ -12,6 +12,7 @@ import { useState} from "react";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import FoodCartPage from "./components/FoodCartPage";
+import Footer from "./components/Footer";
 
     
 const AppLayout =() =>{
@@ -25,13 +26,15 @@ const AppLayout =() =>{
 
   return(
     <Provider store={appStore}>
-     <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
-       <div className="app">
-        <Header/>
-        <Outlet/>
-       </div>
-    
-     </UserContext.Provider>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+      </UserContext.Provider>
     </Provider>
   );
 };
