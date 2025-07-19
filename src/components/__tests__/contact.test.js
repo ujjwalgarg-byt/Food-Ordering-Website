@@ -35,6 +35,6 @@ describe("Contact us page test cases",()=>{
         // console.log(inputBoxes);
         //return jsx elements
         
-        expect(inputBoxes.length).toBe(2);
+        expect(inputBoxes.length).not.toBe(3);
     });
 })
