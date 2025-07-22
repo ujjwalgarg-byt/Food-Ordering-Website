@@ -3,6 +3,8 @@ import { CDN_URL } from "../utils/constants";
 const RestaurantCard=(props)=>{
     //destructuring
     const{ resData }=props;
+    // console.log('resData', resData );
+    
     const { name, cloudinaryImageId, cuisines, avgRating, costForTwo, sla } = resData?.info || {};
     const {header, subHeader} = resData?.info?.aggregatedDiscountInfoV3 || {};
     

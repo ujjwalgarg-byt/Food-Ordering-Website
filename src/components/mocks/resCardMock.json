@@ -1,0 +1,96 @@
+{
+    "info": {
+        "id": "320649",
+        "name": "The Cook House",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/12/30/75b1ba1d-1561-441b-858a-a59b9f1335cf_320649 (1).jpg",
+        "locality": "Civil Lines",
+        "areaName": "Civil Lines",
+        "costForTwo": "₹400 for two",
+        "cuisines": [
+            "Chinese",
+            "Italian",
+            "Desserts",
+            "Tandoor"
+        ],
+        "avgRating": 4.3,
+        "parentId": "207193",
+        "avgRatingString": "4.3",
+        "totalRatingsString": "2.8K+",
+        "sla": {
+            "deliveryTime": 23,
+            "lastMileTravel": 1.8,
+            "serviceability": "SERVICEABLE",
+            "slaString": "20-25 mins",
+            "lastMileTravelString": "1.8 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2025-07-21 23:00:00",
+            "opened": true
+        },
+        "badges": {
+            "imageBadges": [
+                {
+                    "imageId": "android/static-assets/icons/big_rx.png",
+                    "description": "bolt!"
+                },
+                {
+                    "imageId": "Rxawards/_CATEGORY-Biryani.png",
+                    "description": "Delivery!"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "bolt!",
+                                "imageId": "android/static-assets/icons/big_rx.png"
+                            }
+                        },
+                        {
+                            "attributes": {
+                                "description": "Delivery!",
+                                "imageId": "Rxawards/_CATEGORY-Biryani.png"
+                            }
+                        }
+                    ]
+                },
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "65% OFF",
+            "subHeader": "UPTO ₹130",
+            "headerTypeV2": 12
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-43edba31-9f4c-4dca-b737-a414f221ff2d"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/roorkee/the-cook-house-civil-lines-rest320649",
+        "type": "WEBLINK"
+    }
+}
