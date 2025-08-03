@@ -27,7 +27,7 @@ const Header=()=>{
           
           <li className="p-2.5 m-2.5 font-semibold"><Link to="/about" >About Us <i className="fas fa-users"></i></Link></li>
           <li className="p-2.5 m-2.5 font-semibold"><Link to="/contact" >Contact Us <i className="fas fa-envelope"></i></Link></li>
-          <li className="p-2.5 m-2.5 font-semibold"><Link to="/cart">Cart({cartItems.length}) <i className="fa-solid fa-cart-shopping"></i></Link></li>
+          <li className="p-2.5 m-2.5 font-semibold"><Link to="/cart">Cart({cartItems.length} items) <i className="fa-solid fa-cart-shopping"></i></Link></li>
           <button className="login bg-[#F6EFBD] p-2.5 m-2.5 rounded-lg border border-solid border-black cursor-pointer"  
             onClick={()=>{
             btnName==="LogIn"

@@ -32,7 +32,7 @@ const FoodCartPage = () => {
 
       <div className="w-6/12 m-auto">
         {/* Food Items */}
-        <div className=" text-left m-5">
+        <div data-testid="cartItems" className=" text-left m-5">
           {cartItems.map((item) => (
             <div
               key={item.card?.info.id}

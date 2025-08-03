@@ -28,7 +28,7 @@ const Body=()=>{
   const fetchData = async () => {
     const data = await fetch(RESTAURANT_API);
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     // setListOfRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
     //this is not a good way of writing it so we need optional chaining like below
     setListOfRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -57,6 +57,7 @@ const Body=()=>{
         <div className=" search m-4 p-4 ">
           <input
            type="text"
+           data-testid="search-input"
            className="border border-solid border-black rounded-md bg-white text-center"
            value={searchText}
            onChange={(e)=>{
@@ -65,7 +66,7 @@ const Body=()=>{
            }} />
           <button className="search-btn bg-amber-100 px-3 py-0.5 m-3 rounded-lg border border-solid border-black cursor-pointer"
            onClick={()=>{
-            console.log(searchText);
+            // console.log(searchText);
             const filteredRestaurant = listOfRestaurant.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
               

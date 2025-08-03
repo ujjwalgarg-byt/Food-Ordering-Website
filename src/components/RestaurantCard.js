@@ -9,7 +9,7 @@ const RestaurantCard=(props)=>{
     const {header, subHeader} = resData?.info?.aggregatedDiscountInfoV3 || {};
     
     return (    
-      <div className="res-card m-[5px] p-[5px] w-[200px] h-[350px] rounded-lg bg-[#A8F1FF] hover:bg-[#6FE6FC] shadow-xl cursor-pointer relative break-words  ">
+      <div data-testid="resCards" className="res-card m-[5px] p-[5px] w-[200px] h-[350px] rounded-lg bg-[#A8F1FF] hover:bg-[#6FE6FC] shadow-xl cursor-pointer relative break-words  ">
         <div className="relative">
           <img className="res-img w-[100%] h-33 rounded-md" src={CDN_URL+cloudinaryImageId}></img>
           {header || subHeader ? (
